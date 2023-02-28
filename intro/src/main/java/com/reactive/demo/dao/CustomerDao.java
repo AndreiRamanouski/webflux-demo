@@ -29,7 +29,11 @@ public class CustomerDao {
                 .log();
     }
 
-
+    public Flux<Customer> getCustomersWithoutDelay() {
+        return Flux.range(1,200)
+                .doOnNext(i -> log.info("processing count: {}", i))
+                .map(i->new Customer(i, "customer:" + i));
+    }
 
     private static void sleep(long milliseconds){
         try {
