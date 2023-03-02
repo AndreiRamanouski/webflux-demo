@@ -19,7 +19,7 @@ public class ProductService {
 
     public Flux<ProductDto> getProducts() {
         log.info("getProducts");
-        return productRepository.findAll().map(AppUtils::entityToDto).log();
+        return productRepository.findAll().map(AppUtils::entityToDto);
     }
 
     public Mono<ProductDto> findById(String id) {
