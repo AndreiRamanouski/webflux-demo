@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "32f1a7a2-9d67-442e-a825-a659f4bbd47d",
+		"name": "mongo-webflux",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19809253"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Kettlebell\",\n    \"qty\":200,\n    \"price\":300\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8080/products",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Kettlebell\",\n    \"qty\":200,\n    \"price\":300\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "77"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"640029d6a2654615497e68cd\",\n    \"name\": \"Kettlebell\",\n    \"qty\": 200,\n    \"price\": 300\n}"
+				}
+			]
+		},
+		{
+			"name": "localhost:8080/products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8080/products",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"6400296ea2654615497e68c9\",\n        \"name\": \"mobile\",\n        \"qty\": 1,\n        \"price\": 100000\n    },\n    {\n        \"id\": \"640029aaa2654615497e68ca\",\n        \"name\": \"TV\",\n        \"qty\": 5,\n        \"price\": 1000\n    },\n    {\n        \"id\": \"640029b4a2654615497e68cb\",\n        \"name\": \"Vidic\",\n        \"qty\": 100,\n        \"price\": 100\n    },\n    {\n        \"id\": \"640029c4a2654615497e68cc\",\n        \"name\": \"Microwave\",\n        \"qty\": 10,\n        \"price\": 1000\n    },\n    {\n        \"id\": \"640029d6a2654615497e68cd\",\n        \"name\": \"Kettlebell\",\n        \"qty\": 200,\n        \"price\": 300\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "localhost:8080/products/range?min=0&max=600",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/range?min=0&max=600",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"range"
+					],
+					"query": [
+						{
+							"key": "min",
+							"value": "0"
+						},
+						{
+							"key": "max",
+							"value": "600"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8080/products/range?min=0&max=600",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/products/range?min=0&max=600",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"range"
+							],
+							"query": [
+								{
+									"key": "min",
+									"value": "0"
+								},
+								{
+									"key": "max",
+									"value": "600"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"640029b4a2654615497e68cb\",\n        \"name\": \"Vidic\",\n        \"qty\": 100,\n        \"price\": 100\n    },\n    {\n        \"id\": \"640029d6a2654615497e68cd\",\n        \"name\": \"Kettlebell\",\n        \"qty\": 200,\n        \"price\": 300\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "localhost:8080/products/640029d6a2654615497e68cd",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Kettlebell\",\n    \"qty\":0,\n    \"price\":300\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/products/640029d6a2654615497e68cd",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"640029d6a2654615497e68cd"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "localhost:8080/products/640029d6a2654615497e68cd",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Kettlebell\",\n    \"qty\":0,\n    \"price\":300\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/products/640029d6a2654615497e68cd",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"products",
+								"640029d6a2654615497e68cd"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "75"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"640029d6a2654615497e68cd\",\n    \"name\": \"Kettlebell\",\n    \"qty\": 0,\n    \"price\": 300\n}"
+				}
+			]
+		},
+		{
+			"name": "localhost:8080/products/640029aaa2654615497e68ca",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/products/640029aaa2654615497e68ca",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products",
+						"640029aaa2654615497e68ca"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
