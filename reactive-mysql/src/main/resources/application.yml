@@ -1,0 +1,19 @@
+spring:
+  r2dbc:
+    username: root
+    password: root
+    url: r2dbc:pool:mysql://localhost:3306/user
+  liquibase:
+    change-log: classpath:db/changelog.xml
+    url: jdbc:mysql://localhost:3306/user
+    user: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          r2dbc: DEBUG
+
