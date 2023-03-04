@@ -44,7 +44,17 @@
             <column name="created_at" type="datetime">
                 <constraints nullable="false"/>
             </column>
+            <column name="read" type="bit">
+            </column>
         </createTable>
+
+
+        <addDefaultValue
+                tableName="history"
+                columnDataType="bit"
+                columnName="read"
+                defaultValueBoolean="false"
+        />
 
         <addAutoIncrement
                 columnDataType="int"

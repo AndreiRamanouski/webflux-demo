@@ -24,5 +24,6 @@ public class History {
     private String payload;
     @CreatedDate
     private LocalDateTime createdAt;
+    private Boolean read;
 
 }
