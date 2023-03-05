@@ -4,6 +4,7 @@ import com.reactive.demo.reactive.mysql.dto.HistoryDto;
 import com.reactive.demo.reactive.mysql.service.HistoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -25,7 +26,9 @@ public class HistoryHandler {
     public Mono<ServerResponse> getAllByUserId(ServerRequest serverRequest){
         log.info("getAllByUserId");
         Flux<HistoryDto> historyDto = historyService.findAllByUserId(serverRequest.pathVariable("userId"));
-        return ServerResponse.ok().body(historyDto, HistoryDto.class);
+        return ServerResponse.ok()
+                .contentType(MediaType.TEXT_EVENT_STREAM)
+                .body(historyDto, HistoryDto.class);
     }
 
     public Mono<ServerResponse> readHistory(ServerRequest serverRequest){
