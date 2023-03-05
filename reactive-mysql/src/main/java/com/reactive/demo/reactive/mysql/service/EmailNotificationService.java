@@ -9,5 +9,5 @@ public interface EmailNotificationService {
 
     void sendSingleEmail(EmailNotificationRequest email, Mono<User> user);
 
-    void sendEmails(List<String> emails, String title, String body);
+    void sendEmails(List<String> emails, EmailNotificationRequest emailNotificationRequest);
 }

@@ -21,7 +21,7 @@ public class EmailNotificationServiceImpl implements EmailNotificationService {
 
 
     @Override
-    public void sendEmails(List<String> emails, String title, String body){
+    public void sendEmails(List<String> emails, EmailNotificationRequest emailNotificationRequest){
         log.info("sendEmails");
     }
 }
