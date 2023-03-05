@@ -21,5 +21,6 @@ public class User {
     private Long id;
     private String userId;
     private String subscriptionId;
+    private String email;
     private String status;
 }

@@ -19,6 +19,9 @@
             <column name="subscription_id" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
             <column name="status" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>

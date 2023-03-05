@@ -9,11 +9,11 @@ public class UserMapper {
 
     public UserDto mapEntityToDto(User user) {
         return new UserDto(user.getId(), user.getUserId(),
-                user.getSubscriptionId(), user.getStatus());
+                user.getSubscriptionId(), user.getEmail(), user.getStatus());
     }
 
     public User mapDtoToEntity(UserDto userDto) {
         return new User(userDto.id(), userDto.userId(),
-                userDto.subscriptionId(), userDto.status());
+                userDto.subscriptionId(), userDto.email(), userDto.status());
     }
 }
