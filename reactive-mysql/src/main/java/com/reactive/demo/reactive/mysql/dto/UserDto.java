@@ -7,6 +7,6 @@ public record UserDto(Long id,
                       String subscriptionId,
                       String email,
 
-                              String status) {
+                      String status) {
 
 }
