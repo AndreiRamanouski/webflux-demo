@@ -26,14 +26,15 @@ public class UserServiceImpl implements UserService {
     @Override
     public Mono<UserDto> updateUser(Mono<UserDto> userDto, Long id) {
         log.info("updateUser");
-        return userRepository.findById(id).flatMap(user -> userDto.map(UserMapper::mapDtoToEntity))
-                .doOnNext(user -> user.setId(id)).map(UserMapper::mapEntityToDto);
+        log.info("id {}", id);
+        return userRepository.findById(id).log().flatMap(user -> userDto.map(UserMapper::mapDtoToEntity))
+                .doOnNext(user -> user.setId(id)).flatMap(userRepository::save).map(UserMapper::mapEntityToDto);
     }
 
     @Override
-    public Mono<Void> deleteUser(Long id) {
+    public void deleteUser(Long id) {
         log.info("deleteUser");
-        return userRepository.deleteById(id);
+       userRepository.deleteById(id).toFuture();
     }
 
     @Override

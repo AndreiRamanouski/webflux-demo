@@ -10,7 +10,7 @@ public interface UserService {
 
     Mono<UserDto> updateUser(Mono<UserDto> userDto, Long id);
 
-    Mono<Void> deleteUser(Long id);
+    void deleteUser(Long id);
 
     Flux<UserDto> getAllByUserId(String userId);
 
