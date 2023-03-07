@@ -10,16 +10,16 @@ public class UserMapper {
 
     public UserDto mapEntityToDto(User user) {
         return new UserDto(user.getId(), user.getUserId(),
-                user.getSubscriptionId(), user.getEmail(), user.getStatus());
+                user.getDeviceId(), user.getEmail(), user.getStatus());
     }
 
     public User mapDtoToEntity(UserDto userDto) {
         return new User(userDto.id(), userDto.userId(),
-                userDto.subscriptionId(), userDto.email(), userDto.status());
+                userDto.deviceId(), userDto.email(), userDto.status());
     }
 
-    public UserDto mapRequestToDto(UserRequest userRequest){
-        return new UserDto(null, userRequest.getUserId(), userRequest.getSubscriptionId(), userRequest.getEmail(),
+    public UserDto mapRequestToDto(UserRequest userRequest) {
+        return new UserDto(null, userRequest.getUserId(), userRequest.getDeviceId(), userRequest.getEmail(),
                 userRequest.getStatus());
     }
 }

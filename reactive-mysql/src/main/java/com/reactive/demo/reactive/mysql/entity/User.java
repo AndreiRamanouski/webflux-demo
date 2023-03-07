@@ -20,7 +20,7 @@ public class User {
     @Id
     private Long id;
     private String userId;
-    private String subscriptionId;
+    private String deviceId;
     private String email;
     private String status;
 }

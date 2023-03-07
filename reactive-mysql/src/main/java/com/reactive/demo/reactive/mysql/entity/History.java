@@ -6,11 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table
+@Table(name = "history")
 @Accessors(chain = true)
 @Data
 @NoArgsConstructor
@@ -22,8 +21,8 @@ public class History {
     private Long id;
     private String userId;
     private String payload;
-    @CreatedDate
-    private LocalDateTime createdAt;
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
     private Boolean read;
 
 }

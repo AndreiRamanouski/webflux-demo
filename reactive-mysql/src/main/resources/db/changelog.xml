@@ -7,7 +7,6 @@
   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
 
 
-
     <changeSet id="create-users-history" author="ramanouski">
         <createTable tableName="users">
             <column name="id" type="varchar(128)">
@@ -16,7 +15,7 @@
             <column name="user_id" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="subscription_id" type="varchar(255)">
+            <column name="device_id" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="email" type="varchar(255)">
@@ -31,7 +30,7 @@
                 columnName="id"
                 startWith="1"
                 tableName="users"/>
-<!--        incrementBy="1"-->
+        <!--        incrementBy="1"-->
 
 
         <createTable tableName="history">
@@ -68,7 +67,8 @@
 
 
     <changeSet id="add-constraints-indexes" author="ramanouski">
-        <addUniqueConstraint tableName="users" columnNames="user_id, subscription_id" constraintName="user_subscription_constraint"/>
+        <addUniqueConstraint tableName="users" columnNames="user_id, device_id"
+                constraintName="user_subscription_constraint"/>
         <createIndex tableName="history" indexName="history_user_index">
             <column name="user_id"/>
         </createIndex>
@@ -76,7 +76,6 @@
             <column name="user_id"/>
         </createIndex>
     </changeSet>
-
 
 
 </databaseChangeLog>
