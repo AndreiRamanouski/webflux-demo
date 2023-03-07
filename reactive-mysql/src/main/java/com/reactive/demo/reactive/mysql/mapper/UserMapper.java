@@ -18,8 +18,8 @@ public class UserMapper {
                 userDto.deviceId(), userDto.email(), userDto.status());
     }
 
-    public UserDto mapRequestToDto(UserRequest userRequest){
-        return new UserDto(null, userRequest.getUserId(), userRequest.getSubscriptionId(), userRequest.getEmail(),
+    public UserDto mapRequestToDto(UserRequest userRequest) {
+        return new UserDto(null, userRequest.getUserId(), userRequest.getDeviceId(), userRequest.getEmail(),
                 userRequest.getStatus());
     }
 }
