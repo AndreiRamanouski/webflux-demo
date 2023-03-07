@@ -13,7 +13,9 @@ public class HistoryMapper {
     }
 
     public History mapDtoToEntity(HistoryDto historyDto) {
-        return new History(historyDto.id(), historyDto.userId(),
-                historyDto.payload(), historyDto.createdAt(), historyDto.read());
+        return History.builder()
+                .payload(historyDto.payload())
+                .userId(historyDto.userId())
+                .build();
     }
 }

@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class HistoryServiceImpl implements HistoryService {
 
-    private HistoryRepository historyRepository;
+    private final HistoryRepository historyRepository;
 
     @Override
     public Flux<HistoryDto> findAllByUserId(String userId) {

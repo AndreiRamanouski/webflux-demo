@@ -15,15 +15,16 @@ import reactor.core.publisher.Mono;
 @Slf4j
 @Component
 public class HistoryHandler {
+
     private final HistoryService historyService;
 
-    public Mono<ServerResponse> saveHistory(ServerRequest serverRequest){
+    public Mono<ServerResponse> saveHistory(ServerRequest serverRequest) {
         log.info("saveHistory");
         Mono<HistoryDto> savedHistory = historyService.saveHistory(serverRequest.bodyToMono(HistoryDto.class)).log();
         return ServerResponse.ok().body(savedHistory, HistoryDto.class);
     }
 
-    public Mono<ServerResponse> getAllByUserId(ServerRequest serverRequest){
+    public Mono<ServerResponse> getAllByUserId(ServerRequest serverRequest) {
         log.info("getAllByUserId");
         Flux<HistoryDto> historyDto = historyService.findAllByUserId(serverRequest.pathVariable("userId"));
         return ServerResponse.ok()
@@ -31,13 +32,13 @@ public class HistoryHandler {
                 .body(historyDto, HistoryDto.class);
     }
 
-    public Mono<ServerResponse> readHistory(ServerRequest serverRequest){
+    public Mono<ServerResponse> readHistory(ServerRequest serverRequest) {
         log.info("readHistory");
-        Mono<HistoryDto> historyDto =historyService.readHistory(Long.valueOf(serverRequest.pathVariable("historyId")));
+        Mono<HistoryDto> historyDto = historyService.readHistory(Long.valueOf(serverRequest.pathVariable("historyId")));
         return ServerResponse.ok().body(historyDto, HistoryDto.class);
     }
 
-    public Mono<ServerResponse> deleteHistory(ServerRequest serverRequest){
+    public Mono<ServerResponse> deleteHistory(ServerRequest serverRequest) {
         log.info("");
         Mono<Void> history = historyService.deleteHistory(Long.valueOf(serverRequest.pathVariable("historyId")));
         return ServerResponse.ok().body(history, Void.class);
