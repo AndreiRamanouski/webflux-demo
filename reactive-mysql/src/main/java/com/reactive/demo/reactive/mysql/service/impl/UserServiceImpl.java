@@ -32,9 +32,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public Mono<Void> deleteUser(Long id) {
         log.info("deleteUser");
-       userRepository.deleteById(id).toFuture();
+       return userRepository.deleteById(id);
     }
 
     @Override
