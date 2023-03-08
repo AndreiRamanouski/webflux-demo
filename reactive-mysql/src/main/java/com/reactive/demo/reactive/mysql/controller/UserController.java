@@ -2,6 +2,7 @@ package com.reactive.demo.reactive.mysql.controller;
 
 import com.reactive.demo.reactive.mysql.dto.UserDto;
 import com.reactive.demo.reactive.mysql.mapper.UserMapper;
+import com.reactive.demo.reactive.mysql.model.UpdateEmailRequest;
 import com.reactive.demo.reactive.mysql.model.UserRequest;
 import com.reactive.demo.reactive.mysql.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -38,10 +39,10 @@ public class UserController {
         return userService.updateUser(Mono.just(UserMapper.mapRequestToDto(userRequest)), id);
     }
 
-    @PatchMapping("/{userId}")
-    public UserDto updateEmail(@PathVariable String userId) {
+    @PatchMapping
+    public Mono<Void> updateEmail(@RequestBody UpdateEmailRequest updateEmailRequest) {
         log.info("updateEmail");
-        return null;
+        return userService.updateEmail(updateEmailRequest);
     }
 
     @DeleteMapping("/{id}")

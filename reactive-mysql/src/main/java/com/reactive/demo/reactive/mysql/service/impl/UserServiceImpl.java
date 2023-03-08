@@ -2,6 +2,7 @@ package com.reactive.demo.reactive.mysql.service.impl;
 
 import com.reactive.demo.reactive.mysql.dto.UserDto;
 import com.reactive.demo.reactive.mysql.mapper.UserMapper;
+import com.reactive.demo.reactive.mysql.model.UpdateEmailRequest;
 import com.reactive.demo.reactive.mysql.repository.UserRepository;
 import com.reactive.demo.reactive.mysql.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -34,12 +35,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public Mono<Void> deleteUser(Long id) {
         log.info("deleteUser");
-       return userRepository.deleteById(id);
+        return userRepository.deleteById(id);
     }
 
     @Override
     public Flux<UserDto> getAllByUserId(String userId) {
         log.info("getAllByUserId");
         return userRepository.findAllByUserId(userId).map(UserMapper::mapEntityToDto);
+    }
+
+    @Override
+    public Mono<Void> updateEmail(UpdateEmailRequest updateEmailRequest) {
+        return userRepository.findByUserIdAndDeviceId(updateEmailRequest.getUserId(), updateEmailRequest.getDeviceId())
+                .flatMap(user -> userRepository.updateEmail(updateEmailRequest.getEmail(), user.getUserId(),
+                        user.getDeviceId()));
     }
 }

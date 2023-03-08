@@ -1,6 +1,7 @@
 package com.reactive.demo.reactive.mysql.service;
 
 import com.reactive.demo.reactive.mysql.dto.UserDto;
+import com.reactive.demo.reactive.mysql.model.UpdateEmailRequest;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -14,4 +15,5 @@ public interface UserService {
 
     Flux<UserDto> getAllByUserId(String userId);
 
+    Mono<Void> updateEmail(UpdateEmailRequest updateEmailRequest);
 }
