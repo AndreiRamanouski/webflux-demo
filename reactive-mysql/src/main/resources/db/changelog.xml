@@ -30,8 +30,6 @@
                 columnName="id"
                 startWith="1"
                 tableName="users"/>
-        <!--        incrementBy="1"-->
-
 
         <createTable tableName="history">
             <column name="id" type="int">
@@ -46,17 +44,9 @@
             <column name="created_at" type="datetime">
                 <constraints nullable="false"/>
             </column>
-            <column name="read" type="bit">
+            <column name="read" type="bit" defaultValueBoolean="false">
             </column>
         </createTable>
-
-
-        <addDefaultValue
-                tableName="history"
-                columnDataType="bit"
-                columnName="read"
-                defaultValueBoolean="false"
-        />
 
         <addAutoIncrement
                 columnDataType="int"

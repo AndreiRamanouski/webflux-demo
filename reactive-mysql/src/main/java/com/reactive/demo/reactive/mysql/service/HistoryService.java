@@ -10,6 +10,6 @@ public interface HistoryService {
 
     Mono<HistoryDto> saveHistory(Mono<HistoryDto> historyDto);
 
-    Mono<HistoryDto> readHistory(Long id);
+    Mono<Void> readHistory(Long id);
     Mono<Void> deleteHistory(Long id);
 }

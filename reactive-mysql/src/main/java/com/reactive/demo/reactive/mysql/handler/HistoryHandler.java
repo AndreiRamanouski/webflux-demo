@@ -34,7 +34,7 @@ public class HistoryHandler {
 
     public Mono<ServerResponse> readHistory(ServerRequest serverRequest) {
         log.info("readHistory");
-        Mono<HistoryDto> historyDto = historyService.readHistory(Long.valueOf(serverRequest.pathVariable("historyId")));
+        Mono<Void> historyDto = historyService.readHistory(Long.valueOf(serverRequest.pathVariable("historyId")));
         return ServerResponse.ok().body(historyDto, HistoryDto.class);
     }
 

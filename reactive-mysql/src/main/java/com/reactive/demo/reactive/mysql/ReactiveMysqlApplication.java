@@ -13,7 +13,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
-@EnableTransactionManagement
 @RequiredArgsConstructor
 @Slf4j
 public class ReactiveMysqlApplication {
@@ -26,7 +25,7 @@ public class ReactiveMysqlApplication {
     }
 
     @PostConstruct
-    private void saveUsers() {
+    private void saveUserAndHistory() {
         SecureRandom secureRandom = new SecureRandom();
 
         for (int i = 0; i < 2; i++) {

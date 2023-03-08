@@ -17,8 +17,8 @@ public class RouterConfig {
         return RouterFunctions.route()
                 .POST("/history/save", userHistoryHandler::saveHistory)
                 .GET("/history/{userId}", userHistoryHandler::getAllByUserId)
-                .POST("/history/{history}", userHistoryHandler::readHistory)
-                .DELETE("/history/{history}", userHistoryHandler::deleteHistory)
+                .PATCH("/history/{historyId}", userHistoryHandler::readHistory)
+                .DELETE("/history/{historyId}", userHistoryHandler::deleteHistory)
                 .build();
     }
 }
