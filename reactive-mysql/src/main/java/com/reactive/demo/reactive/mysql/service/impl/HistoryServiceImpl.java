@@ -31,10 +31,9 @@ public class HistoryServiceImpl implements HistoryService {
     }
 
     @Override
-    public Mono<HistoryDto> readHistory(Long id) {
+    public Mono<Void> readHistory(Long id) {
         log.info("readHistory");
-        return historyRepository.findById(id).doOnNext(history -> history.setRead(!history.getRead()))
-                .map(HistoryMapper::mapEntityToDto);
+        return historyRepository.findById(id).flatMap(history -> historyRepository.setRead(id, !history.getRead()));
     }
 
     @Override
