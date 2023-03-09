@@ -9,7 +9,21 @@ spring:
     user: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
-
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: changeme
+    password: changeme
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+  profiles:
+    active: local
 logging:
   level:
     org:

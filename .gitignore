@@ -34,3 +34,4 @@ build/
 
 ### Local Properties ###
 *-local.yml
+src/main/resources/application-local.yml
