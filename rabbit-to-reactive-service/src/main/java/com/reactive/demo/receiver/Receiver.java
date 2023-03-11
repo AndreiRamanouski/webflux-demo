@@ -1,7 +1,6 @@
 package com.reactive.demo.receiver;
 
 import com.reactive.demo.HistoryModel;
-import java.util.concurrent.CountDownLatch;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
