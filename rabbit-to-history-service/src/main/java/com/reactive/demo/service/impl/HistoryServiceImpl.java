@@ -33,7 +33,9 @@ public class HistoryServiceImpl implements HistoryService {
     @Override
     public Mono<Void> readHistory(String id) {
         log.info("readHistory");
-        return historyRepository.findById(id).flatMap(history -> historyRepository.setRead(id, !history.getRead()));
+        return historyRepository.findById(id).doOnNext(history -> history.setRead(!history.getRead()))
+                .flatMap(historyRepository::save).then();
+
     }
 
     @Override
