@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
 @Import(RabbitConsumerConfig.class)
-public class RabbitToMysqlApplication {
+public class RabbitToHistoryApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RabbitToMysqlApplication.class, args);
+        SpringApplication.run(RabbitToHistoryApplication.class, args);
     }
 }
