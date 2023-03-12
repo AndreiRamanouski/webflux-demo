@@ -1,6 +1,6 @@
-package com.reactive.demo.reactive.mysql.router;
+package com.reactive.demo.router;
 
-import com.reactive.demo.reactive.mysql.handler.HistoryHandler;
+import com.reactive.demo.handler.HistoryHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

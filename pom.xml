@@ -7,7 +7,7 @@
         <module>reactive-mongo</module>
         <module>reactive-mysql</module>
         <module>rabbit</module>
-        <module>rabbit-to-reactive-service</module>
+        <module>rabbit-to-history-service</module>
         <module>rabbit-producer-service</module>
     </modules>
     <parent>

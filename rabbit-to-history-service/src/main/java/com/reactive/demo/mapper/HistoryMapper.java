@@ -1,7 +1,7 @@
-package com.reactive.demo.reactive.mysql.mapper;
+package com.reactive.demo.mapper;
 
-import com.reactive.demo.reactive.mysql.dto.HistoryDto;
-import com.reactive.demo.reactive.mysql.entity.History;
+import com.reactive.demo.dto.HistoryDto;
+import com.reactive.demo.entity.History;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

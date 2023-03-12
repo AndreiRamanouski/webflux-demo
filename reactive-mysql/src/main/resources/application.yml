@@ -4,7 +4,7 @@ spring:
     password: root
     url: r2dbc:pool:mysql://localhost:3306/user
   liquibase:
-    change-log: classpath:db/changelog.xml
+    change-log: classpath:db/changelog-master.xml
     url: jdbc:mysql://localhost:3306/user
     user: root
     password: root

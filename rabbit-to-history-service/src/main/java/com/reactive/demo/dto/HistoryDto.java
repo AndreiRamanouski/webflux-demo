@@ -1,8 +1,8 @@
-package com.reactive.demo.reactive.mysql.dto;
+package com.reactive.demo.dto;
 
 import java.time.LocalDateTime;
 
-public record HistoryDto(Long id,
+public record HistoryDto(String id,
                          String userId,
                          String payload,
                          LocalDateTime createdAt,

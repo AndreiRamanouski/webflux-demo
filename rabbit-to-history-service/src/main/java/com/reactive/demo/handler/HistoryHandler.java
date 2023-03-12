@@ -1,7 +1,7 @@
-package com.reactive.demo.reactive.mysql.handler;
+package com.reactive.demo.handler;
 
-import com.reactive.demo.reactive.mysql.dto.HistoryDto;
-import com.reactive.demo.reactive.mysql.service.HistoryService;
+import com.reactive.demo.dto.HistoryDto;
+import com.reactive.demo.service.HistoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -34,13 +34,13 @@ public class HistoryHandler {
 
     public Mono<ServerResponse> readHistory(ServerRequest serverRequest) {
         log.info("readHistory");
-        Mono<Void> historyDto = historyService.readHistory(Long.valueOf(serverRequest.pathVariable("historyId")));
+        Mono<Void> historyDto = historyService.readHistory(serverRequest.pathVariable("historyId"));
         return ServerResponse.ok().body(historyDto, HistoryDto.class);
     }
 
     public Mono<ServerResponse> deleteHistory(ServerRequest serverRequest) {
         log.info("");
-        Mono<Void> history = historyService.deleteHistory(Long.valueOf(serverRequest.pathVariable("historyId")));
+        Mono<Void> history = historyService.deleteHistory(serverRequest.pathVariable("historyId"));
         return ServerResponse.ok().body(history, Void.class);
     }
 
