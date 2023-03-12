@@ -1,9 +1,9 @@
-package com.reactive.demo.reactive.mysql.service.impl;
+package com.reactive.demo.service.impl;
 
-import com.reactive.demo.reactive.mysql.dto.HistoryDto;
-import com.reactive.demo.reactive.mysql.mapper.HistoryMapper;
-import com.reactive.demo.reactive.mysql.repository.HistoryRepository;
-import com.reactive.demo.reactive.mysql.service.HistoryService;
+import com.reactive.demo.dto.HistoryDto;
+import com.reactive.demo.mapper.HistoryMapper;
+import com.reactive.demo.repository.HistoryRepository;
+import com.reactive.demo.service.HistoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -31,13 +31,13 @@ public class HistoryServiceImpl implements HistoryService {
     }
 
     @Override
-    public Mono<Void> readHistory(Long id) {
+    public Mono<Void> readHistory(String id) {
         log.info("readHistory");
         return historyRepository.findById(id).flatMap(history -> historyRepository.setRead(id, !history.getRead()));
     }
 
     @Override
-    public Mono<Void> deleteHistory(Long id) {
+    public Mono<Void> deleteHistory(String id) {
         log.info("deleteHistory");
         return historyRepository.deleteById(id);
     }

@@ -1,6 +1,6 @@
-package com.reactive.demo.reactive.mysql.service;
+package com.reactive.demo.service;
 
-import com.reactive.demo.reactive.mysql.dto.HistoryDto;
+import com.reactive.demo.dto.HistoryDto;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -10,6 +10,6 @@ public interface HistoryService {
 
     Mono<HistoryDto> saveHistory(Mono<HistoryDto> historyDto);
 
-    Mono<Void> readHistory(Long id);
-    Mono<Void> deleteHistory(Long id);
+    Mono<Void> readHistory(String id);
+    Mono<Void> deleteHistory(String id);
 }
