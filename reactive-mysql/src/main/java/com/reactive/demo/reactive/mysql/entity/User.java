@@ -19,8 +19,8 @@ public class User {
 
     @Id
     private Long id;
-    private String userId;
-    private String deviceId;
+    private String firstName;
+    private String lastName;
     private String email;
     private String status;
 }

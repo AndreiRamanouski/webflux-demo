@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -52,8 +51,8 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public Flux<UserDto> findAllByUserId(@PathVariable String userId) {
+    public Mono<UserDto> findByUserId(@PathVariable String userId) {
         log.info("findAllByUserId");
-        return userService.getAllByUserId(userId);
+        return userService.getByUserId(Long.valueOf(userId));
     }
 }

@@ -9,17 +9,17 @@ import lombok.experimental.UtilityClass;
 public class UserMapper {
 
     public UserDto mapEntityToDto(User user) {
-        return new UserDto(user.getId(), user.getUserId(),
-                user.getDeviceId(), user.getEmail(), user.getStatus());
+        return new UserDto(user.getId(), user.getFirstName(),
+                user.getLastName(), user.getEmail(), user.getStatus());
     }
 
     public User mapDtoToEntity(UserDto userDto) {
-        return new User(userDto.id(), userDto.userId(),
-                userDto.deviceId(), userDto.email(), userDto.status());
+        return new User(userDto.id(), userDto.firstName(),
+                userDto.lastName(), userDto.email(), userDto.status());
     }
 
     public UserDto mapRequestToDto(UserRequest userRequest) {
-        return new UserDto(null, userRequest.getUserId(), userRequest.getDeviceId(), userRequest.getEmail(),
+        return new UserDto(null, userRequest.getFirstName(), userRequest.getLastName(), userRequest.getEmail(),
                 userRequest.getStatus());
     }
 }

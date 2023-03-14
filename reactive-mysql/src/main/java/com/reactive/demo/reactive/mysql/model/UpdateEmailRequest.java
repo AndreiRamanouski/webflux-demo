@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class UpdateEmailRequest {
 
-    private String userId;
-    private String deviceId;
+    private Long id;
     private String email;
 }
