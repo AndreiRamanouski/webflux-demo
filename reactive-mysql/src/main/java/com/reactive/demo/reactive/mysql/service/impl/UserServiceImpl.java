@@ -8,7 +8,6 @@ import com.reactive.demo.reactive.mysql.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -39,15 +38,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Flux<UserDto> getAllByUserId(String userId) {
-        log.info("getAllByUserId");
-        return userRepository.findAllByUserId(userId).map(UserMapper::mapEntityToDto);
+    public Mono<UserDto> getByUserId(Long id) {
+        log.info("getByUserId");
+        return userRepository.findById(id).map(UserMapper::mapEntityToDto);
     }
 
     @Override
     public Mono<Void> updateEmail(UpdateEmailRequest updateEmailRequest) {
-        return userRepository.findByUserIdAndDeviceId(updateEmailRequest.getUserId(), updateEmailRequest.getDeviceId())
-                .flatMap(user -> userRepository.updateEmail(updateEmailRequest.getEmail(), user.getUserId(),
-                        user.getDeviceId()));
+        return userRepository.findById(updateEmailRequest.getId())
+                .flatMap(user -> userRepository.updateEmail(updateEmailRequest.getEmail(), user.getId()));
     }
 }

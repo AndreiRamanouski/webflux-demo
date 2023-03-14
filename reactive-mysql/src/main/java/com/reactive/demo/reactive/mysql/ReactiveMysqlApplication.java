@@ -3,7 +3,6 @@ package com.reactive.demo.reactive.mysql;
 import com.reactive.demo.reactive.mysql.entity.User;
 import com.reactive.demo.reactive.mysql.repository.UserRepository;
 import jakarta.annotation.PostConstruct;
-import java.security.SecureRandom;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -22,18 +21,14 @@ public class ReactiveMysqlApplication {
 
     @PostConstruct
     private void saveUserAndHistory() {
-        SecureRandom secureRandom = new SecureRandom();
-
         for (int i = 0; i < 2; i++) {
-            String userId = String.valueOf(secureRandom.nextInt(100000));
             log.info("Saving user id {}", i);
             userRepository.save(User.builder()
-                    .userId(userId)
-                    .deviceId(String.valueOf(secureRandom.nextInt(100000)))
+                    .firstName("user")
+                    .lastName("user")
                     .email("Mock email")
                     .status("Mock Status")
                     .build()).toFuture();
         }
-
     }
 }

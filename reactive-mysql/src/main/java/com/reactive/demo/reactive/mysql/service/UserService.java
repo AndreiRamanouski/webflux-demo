@@ -2,7 +2,6 @@ package com.reactive.demo.reactive.mysql.service;
 
 import com.reactive.demo.reactive.mysql.dto.UserDto;
 import com.reactive.demo.reactive.mysql.model.UpdateEmailRequest;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public interface UserService {
@@ -13,7 +12,7 @@ public interface UserService {
 
     Mono<Void> deleteUser(Long id);
 
-    Flux<UserDto> getAllByUserId(String userId);
+    Mono<UserDto> getByUserId(Long userId);
 
     Mono<Void> updateEmail(UpdateEmailRequest updateEmailRequest);
 }
