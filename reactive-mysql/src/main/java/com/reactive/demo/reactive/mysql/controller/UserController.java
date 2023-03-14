@@ -2,10 +2,8 @@ package com.reactive.demo.reactive.mysql.controller;
 
 import com.reactive.demo.reactive.mysql.dto.UserDto;
 import com.reactive.demo.reactive.mysql.mapper.UserMapper;
-import com.reactive.demo.reactive.mysql.model.EmailNotificationRequest;
 import com.reactive.demo.reactive.mysql.model.UpdateEmailRequest;
 import com.reactive.demo.reactive.mysql.model.UserRequest;
-import com.reactive.demo.reactive.mysql.service.EmailNotificationService;
 import com.reactive.demo.reactive.mysql.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +25,6 @@ import reactor.core.publisher.Mono;
 public class UserController {
 
     private final UserService userService;
-    private final EmailNotificationService emailNotificationService;
 
     @PostMapping
     public Mono<UserDto> saveUser(@RequestBody UserRequest userRequest) {
@@ -56,10 +53,6 @@ public class UserController {
     @GetMapping("/{userId}")
     public Mono<UserDto> findByUserId(@PathVariable String userId) {
         log.info("findAllByUserId");
-        emailNotificationService.sendEmailToAllUsers(EmailNotificationRequest.builder()
-                        .body("ss")
-                        .title("sss")
-                .build());
         return userService.getByUserId(Long.valueOf(userId));
     }
 }
