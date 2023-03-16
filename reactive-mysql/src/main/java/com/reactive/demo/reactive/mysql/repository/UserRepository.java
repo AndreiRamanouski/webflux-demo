@@ -11,4 +11,5 @@ public interface UserRepository extends ReactiveCrudRepository<User, Long> {
     @Query("UPDATE users SET email = :email WHERE id = :id")
     Mono<Void> updateEmail(String email, Long id);
 
+    Mono<User> findByEmail(String email);
 }
