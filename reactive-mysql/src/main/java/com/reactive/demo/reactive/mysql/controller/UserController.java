@@ -5,6 +5,7 @@ import com.reactive.demo.reactive.mysql.mapper.UserMapper;
 import com.reactive.demo.reactive.mysql.model.UpdateEmailRequest;
 import com.reactive.demo.reactive.mysql.model.UserRequest;
 import com.reactive.demo.reactive.mysql.service.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,19 +28,19 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public Mono<UserDto> saveUser(@RequestBody UserRequest userRequest) {
+    public Mono<UserDto> saveUser(@RequestBody @Valid UserRequest userRequest) {
         log.info("saveUser");
         return userService.saveUser(Mono.just(UserMapper.mapRequestToDto(userRequest)));
     }
 
     @PutMapping("/{id}")
-    public Mono<UserDto> updateUser(@RequestBody UserRequest userRequest, @PathVariable Long id) {
+    public Mono<UserDto> updateUser(@RequestBody @Valid UserRequest userRequest, @PathVariable Long id) {
         log.info("updateUser");
         return userService.updateUser(Mono.just(UserMapper.mapRequestToDto(userRequest)), id);
     }
 
     @PatchMapping
-    public Mono<Void> updateEmail(@RequestBody UpdateEmailRequest updateEmailRequest) {
+    public Mono<Void> updateEmail(@RequestBody @Valid UpdateEmailRequest updateEmailRequest) {
         log.info("updateEmail");
         return userService.updateEmail(updateEmailRequest);
     }
