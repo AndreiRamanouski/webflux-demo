@@ -30,4 +30,8 @@ logging:
       springframework:
         data:
           r2dbc: DEBUG
+rabbit:
+  history:
+    topic: spring-boot-exchange
+    key: spring-boot
 

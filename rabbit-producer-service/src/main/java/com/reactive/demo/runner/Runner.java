@@ -2,6 +2,8 @@ package com.reactive.demo.runner;
 
 
 import com.reactive.demo.HistoryModel;
+import com.reactive.demo.UserAction;
+import java.util.Random;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitMessagingTemplate;
@@ -23,8 +25,8 @@ public class Runner implements CommandLineRunner {
         rabbitTemplate.setMessageConverter(mappingJackson2MessageConverter);
         for (int i = 0; i < 10; i++) {
             HistoryModel build = HistoryModel.builder()
-                    .userId("21213")
-                    .payload("Mock Payload")
+                    .userId(String.valueOf(new Random().nextInt(10000000)))
+                    .userAction(UserAction.REGISTRATION)
                     .build();
             log.info("Sending message... {}", build);
             rabbitTemplate.convertAndSend("spring-boot-exchange", "spring-boot", build);

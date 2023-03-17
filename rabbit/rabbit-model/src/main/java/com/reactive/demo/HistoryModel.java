@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 @Data
 public class HistoryModel {
     private String userId;
-    private String payload;
+    private UserAction userAction;
 }
