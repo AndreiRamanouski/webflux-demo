@@ -1,0 +1,14 @@
+{
+    "properties": [
+        {
+            "name": "rabbit.history.topic",
+            "type": "java.lang.String",
+            "description": "Topic to produce the message"
+        },
+        {
+            "name": "rabbit.history.key",
+            "type": "java.lang.String",
+            "description": "Rabbit Key"
+        }
+    ]
+}
