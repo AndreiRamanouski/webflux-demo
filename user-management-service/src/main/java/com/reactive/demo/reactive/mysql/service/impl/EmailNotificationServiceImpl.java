@@ -30,6 +30,7 @@ public class EmailNotificationServiceImpl implements EmailNotificationService {
      * @param emailRequest contains title and body for email
      * @param userRequest the receiver
      */
+
     @Override
     public void sendSingleEmail(EmailNotificationRequest emailRequest, Mono<User> userRequest) {
         log.info("sendSingleEmail");
@@ -37,7 +38,6 @@ public class EmailNotificationServiceImpl implements EmailNotificationService {
         simpleMailMessage.setTo(userRequest.map(User::getEmail).toString());
         javaMailSender.send(simpleMailMessage);
     }
-
 
     /**
      * Sends the email to all users saved in the database.
