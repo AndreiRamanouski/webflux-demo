@@ -9,12 +9,12 @@ public class HistoryMapper {
 
     public HistoryDto mapEntityToDto(History history) {
         return new HistoryDto(history.getId(), history.getUserId(),
-                history.getPayload(), history.getCreatedAt(), history.getRead());
+                history.getUserAction(), history.getCreatedAt(), history.getRead());
     }
 
     public History mapDtoToEntity(HistoryDto historyDto) {
         return History.builder()
-                .payload(historyDto.payload())
+                .userAction(historyDto.userAction())
                 .userId(historyDto.userId())
                 .build();
     }

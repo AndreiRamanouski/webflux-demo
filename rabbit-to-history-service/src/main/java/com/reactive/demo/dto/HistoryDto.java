@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 public record HistoryDto(String id,
                          String userId,
-                         String payload,
+                         String userAction,
                          LocalDateTime createdAt,
                          Boolean read) {
 
