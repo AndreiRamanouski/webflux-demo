@@ -18,7 +18,7 @@ public class History {
     @Id
     private String id;
     private String userId;
-    private String payload;
+    private String userAction;
     @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
     @Builder.Default
