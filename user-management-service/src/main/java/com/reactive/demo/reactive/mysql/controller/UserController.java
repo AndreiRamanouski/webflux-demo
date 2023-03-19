@@ -5,7 +5,6 @@ import com.reactive.demo.reactive.mysql.mapper.UserMapper;
 import com.reactive.demo.reactive.mysql.model.UpdateEmailRequest;
 import com.reactive.demo.reactive.mysql.model.UserRequest;
 import com.reactive.demo.reactive.mysql.service.UserService;
-import com.reactive.demo.reactive.mysql.util.RabbitHistoryUtil;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +26,6 @@ import reactor.core.publisher.Mono;
 public class UserController {
 
     private final UserService userService;
-    private final RabbitHistoryUtil rabbitHistoryUtil;
 
     @PostMapping
     public Mono<UserDto> saveUser(@RequestBody @Valid UserRequest userRequest) {
