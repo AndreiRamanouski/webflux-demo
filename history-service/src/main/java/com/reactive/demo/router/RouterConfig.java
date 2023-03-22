@@ -15,7 +15,6 @@ public class RouterConfig {
     @Bean
     public RouterFunction<ServerResponse> routerFunction() {
         return RouterFunctions.route()
-                .POST("/history/save", userHistoryHandler::saveHistory)
                 .GET("/history/{userId}", userHistoryHandler::getAllByUserId)
                 .PATCH("/history/{historyId}", userHistoryHandler::readHistory)
                 .DELETE("/history/{historyId}", userHistoryHandler::deleteHistory)

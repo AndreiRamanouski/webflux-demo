@@ -9,6 +9,7 @@
         <module>rabbit</module>
         <module>rabbit-to-history-service</module>
         <module>rabbit-producer-service</module>
+        <module>history-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
