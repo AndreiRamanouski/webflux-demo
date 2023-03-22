@@ -18,11 +18,6 @@ public class HistoryHandler {
 
     private final HistoryService historyService;
 
-    public Mono<ServerResponse> saveHistory(ServerRequest serverRequest) {
-        log.info("saveHistory");
-        Mono<HistoryDto> savedHistory = historyService.saveHistory(serverRequest.bodyToMono(HistoryDto.class)).log();
-        return ServerResponse.ok().body(savedHistory, HistoryDto.class);
-    }
 
     public Mono<ServerResponse> getAllByUserId(ServerRequest serverRequest) {
         log.info("getAllByUserId");

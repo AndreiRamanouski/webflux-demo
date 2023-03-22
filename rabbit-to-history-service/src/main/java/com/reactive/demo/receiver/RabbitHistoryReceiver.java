@@ -2,7 +2,7 @@ package com.reactive.demo.receiver;
 
 import com.reactive.demo.HistoryModel;
 import com.reactive.demo.dto.HistoryDto;
-import com.reactive.demo.service.HistoryService;
+import com.reactive.demo.service.RabbitHistoryService;
 import com.reactive.demo.transformer.HistoryModelTransformer;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -16,13 +16,13 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class RabbitHistoryReceiver {
 
-    private final HistoryService historyService;
+    private final RabbitHistoryService rabbitHistoryService;
 
     @SneakyThrows
     @RabbitListener(queues = "spring-boot")
     public void receiveMessage(HistoryModel message) {
         log.info("Received message {}", message);
         HistoryDto historyDto = HistoryModelTransformer.modelToEntity(message);
-        historyService.saveHistory(Mono.just(historyDto)).subscribe();
+        rabbitHistoryService.saveHistory(Mono.just(historyDto)).subscribe();
     }
 }
