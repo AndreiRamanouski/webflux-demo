@@ -1,7 +1,7 @@
-package com.reactive.demo.mapper;
+package com.reactive.demo.history.common.mapper;
 
-import com.reactive.demo.dto.HistoryDto;
-import com.reactive.demo.entity.History;
+import com.reactive.demo.history.common.dto.HistoryDto;
+import com.reactive.demo.history.common.entity.History;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

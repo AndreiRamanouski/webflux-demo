@@ -1,7 +1,7 @@
 package com.reactive.demo.receiver;
 
 import com.reactive.demo.HistoryModel;
-import com.reactive.demo.dto.HistoryDto;
+import com.reactive.demo.history.common.dto.HistoryDto;
 import com.reactive.demo.service.RabbitHistoryService;
 import com.reactive.demo.transformer.HistoryModelTransformer;
 import lombok.RequiredArgsConstructor;

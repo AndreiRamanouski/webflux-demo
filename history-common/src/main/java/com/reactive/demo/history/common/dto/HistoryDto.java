@@ -1,4 +1,4 @@
-package com.reactive.demo.dto;
+package com.reactive.demo.history.common.dto;
 
 import java.time.LocalDateTime;
 

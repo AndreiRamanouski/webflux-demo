@@ -1,7 +1,7 @@
 package com.reactive.demo.transformer;
 
 import com.reactive.demo.HistoryModel;
-import com.reactive.demo.dto.HistoryDto;
+import com.reactive.demo.history.common.dto.HistoryDto;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
