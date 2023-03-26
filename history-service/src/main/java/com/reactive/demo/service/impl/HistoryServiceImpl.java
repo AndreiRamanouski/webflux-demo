@@ -1,8 +1,8 @@
 package com.reactive.demo.service.impl;
 
-import com.reactive.demo.dto.HistoryDto;
-import com.reactive.demo.mapper.HistoryMapper;
-import com.reactive.demo.repository.HistoryRepository;
+import com.reactive.demo.history.common.dto.HistoryDto;
+import com.reactive.demo.history.common.mapper.HistoryMapper;
+import com.reactive.demo.history.common.repository.HistoryRepository;
 import com.reactive.demo.service.HistoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

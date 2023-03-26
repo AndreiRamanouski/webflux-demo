@@ -1,6 +1,6 @@
 package com.reactive.demo.handler;
 
-import com.reactive.demo.dto.HistoryDto;
+import com.reactive.demo.history.common.dto.HistoryDto;
 import com.reactive.demo.service.HistoryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
