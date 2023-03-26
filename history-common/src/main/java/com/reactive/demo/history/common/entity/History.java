@@ -1,4 +1,4 @@
-package com.reactive.demo.entity;
+package com.reactive.demo.history.common.entity;
 
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
