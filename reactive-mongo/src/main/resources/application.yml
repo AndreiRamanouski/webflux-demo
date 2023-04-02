@@ -1,8 +1,0 @@
-spring:
-  data:
-    mongodb:
-      database: admin
-      host: localhost
-      port: 27017
-      username: mongoadmin
-      password: secret
